@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.graphics.Color as ComposeColor
@@ -93,7 +94,8 @@ fun Clock(
                 (radius - clockStyle.mainHatchHeight.toPx()) * cos(secondsAngel) + center.x,
                 (radius - clockStyle.mainHatchHeight.toPx()) * sin(secondsAngel) + center.y
             ),
-            clockStyle.secondStrokeWidth.toPx()
+            clockStyle.secondStrokeWidth.toPx(),
+            StrokeCap.Round
         )
         drawLine(
             ComposeColor.Black,
@@ -102,7 +104,8 @@ fun Clock(
                 (radius - clockStyle.mainHatchHeight.toPx()) * cos(minutesAngel) + center.x,
                 (radius - clockStyle.mainHatchHeight.toPx()) * sin(minutesAngel) + center.y
             ),
-            clockStyle.minuteStrokeWidth.toPx()
+            clockStyle.minuteStrokeWidth.toPx(),
+            StrokeCap.Round
         )
         drawLine(
             ComposeColor.Black,
@@ -111,7 +114,8 @@ fun Clock(
                 clockStyle.hourStrokeLength.toPx() * cos(hoursAngel) + center.x,
                 clockStyle.hourStrokeLength.toPx() * sin(hoursAngel) + center.y
             ),
-            clockStyle.hourStrokeWidth.toPx()
+            clockStyle.hourStrokeWidth.toPx(),
+            StrokeCap.Round
         )
     }
 }
